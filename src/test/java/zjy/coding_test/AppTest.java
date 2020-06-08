@@ -22,8 +22,7 @@ public class AppTest extends TestCase {
 		System.out.println("---------testDefault---------");
 		List<String> sentences = WorkBreakContext.getSentences("ilikesamsungmobile", null, false);
 		sentences.stream().forEach(t -> System.out.println(t));
-		assertTrue(sentences.contains("i like sam sung mobile") && Objects.equals(sentences.size(), 2));
-		assertTrue(sentences.contains("i like samsung mobile") && Objects.equals(sentences.size(), 2));
+		assertTrue(sentences.contains("i like sam sung mobile")&&sentences.contains("i like samsung mobile") && Objects.equals(sentences.size(), 2));
 
 		sentences = WorkBreakContext.getSentences("ilikeicecreamandmango", null, false);
 		sentences.stream().forEach(t -> System.out.println(t));
@@ -48,7 +47,6 @@ public class AppTest extends TestCase {
 				Arrays.asList("i", "like", "sam", "sung", "mobile", "icecream", "man go", "mango"));
 		List<String> sentences = WorkBreakContext.getSentences("ilikesamsungmobile", set, true);
 		sentences.stream().forEach(t -> System.out.println(t));
-		assertTrue(sentences.contains("i like sam sung mobile") && Objects.equals(sentences.size(), 2));
-		assertTrue(sentences.contains("i like samsung mobile") && Objects.equals(sentences.size(), 2));
+		assertTrue(sentences.contains("i like sam sung mobile") && sentences.contains("i like samsung mobile")&& Objects.equals(sentences.size(), 2));
 	}
 }
