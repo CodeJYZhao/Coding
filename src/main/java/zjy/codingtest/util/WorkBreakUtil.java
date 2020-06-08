@@ -1,14 +1,22 @@
 package zjy.codingtest.util;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
-import java.util.stream.Collectors;
 
+/**
+ * work Break Util
+ * @author zhaojy
+ * @date  2020年6月7日
+ */
 public class WorkBreakUtil {
+	
+	/**
+	 * wordBreak
+	 * @param s		sentence
+	 * @param dict	dictionary
+	 * @return
+	 */
 	public List<String> wordBreak(String s, Set<String> dict) {
 		List<String> list = new ArrayList<String>();
 		List<String> ret = new ArrayList<String>();
@@ -16,6 +24,13 @@ public class WorkBreakUtil {
 		return ret;
 	}
 
+	/**
+	 * recursive call
+	 * @param s		sentence 
+	 * @param dict	dictionary
+	 * @param list	
+	 * @param ret	resultList
+	 */
 	public void rec(String s, Set<String> dict, List<String> list, List<String> ret) {
 		if (s.length() == 0) {
 			String concat = "";
@@ -42,21 +57,5 @@ public class WorkBreakUtil {
 		}
 	}
 
-	public boolean isBreak(String s, Set<String> dict) {
-		boolean[] canBreak = new boolean[s.length() + 1];
-		canBreak[0] = true;
-
-		for (int i = 1; i <= s.length(); i++) {
-			boolean flag = false;
-			for (int j = 0; j < i; j++) {
-				if (canBreak[j] && dict.contains(s.substring(j, i))) {
-					flag = true;
-					break;
-				}
-			}
-			canBreak[i] = flag;
-		}
-		return canBreak[s.length()];
-	}
 
 }
