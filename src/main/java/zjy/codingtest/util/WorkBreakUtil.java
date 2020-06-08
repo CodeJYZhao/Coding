@@ -28,17 +28,13 @@ public class WorkBreakUtil {
 			ret.add(concat);
 			return;
 		}
-		int i = 0;
-		boolean flag = false;
 		for (String cur : dict) {
-			i++;
 			String temp = cur.replace(" ", "");
 			if (temp.length() > s.length()) {
 				continue;
 			}
 			String substr = s.substring(0, temp.length());
 			if (substr.equals(temp)) {
-				flag = true;
 				list.add(cur);
 				rec(s.substring(temp.length()), dict, list, ret);
 				list.remove(list.size() - 1);
